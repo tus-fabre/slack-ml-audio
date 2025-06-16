@@ -18,6 +18,9 @@ from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from speech.audio_util import convert_mp3
 from speech.extract import extract_text
+from dotenv import load_dotenv
+# .envファイルの内容を読み込見込む
+load_dotenv()
 
 # BOTトークンからアプリを初期化する
 bot_token = os.environ.get("SLACK_BOT_TOKEN")

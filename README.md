@@ -10,7 +10,11 @@ Slack APIチュートリアル「NodeJSとSlack APIによるいまどきのネ�
 
 #### ffmpegを配置する
 
-ffmpeg公式サイト[https://ffmpeg.org/download.html](https://ffmpeg.org/download.html)からWindowsアイコンをクリックし「Windows builds by BtbN」を選択する。Windows向けの圧縮ファイルをダウンロードし、解凍する。binフォルダーにあるffmpeg.exeをアプリのサブフォルダーspeechに配置する。
+ffmpegは、動画や音声の変換、編集、ストリーミングなど、マルチメディア処理を行うためのオープンソースのソフトウェアであり、コマンドラインツールとして提供されている。
+
+- ffmpeg公式サイト[https://ffmpeg.org/download.html](https://ffmpeg.org/download.html)からWindowsアイコンをクリックし「Windows builds by BtbN」を選択する。
+  - Windows向けの圧縮ファイルをダウンロードし、解凍する。
+  - binフォルダーにあるffmpeg.exeとDLLファイル全てを本アプリのサブフォルダーspeechに配置する。
 
 #### 必要なパッケージをインストールする
 
@@ -22,10 +26,10 @@ pip install -r requirements.txt
 
 #### 環境変数を設定する
 
-本アプリを起動するには環境変数の設定が必要である。env.tplファイルをenv.batバッチファイルとしてコピーし、以下の環境変数を定義する。
+本アプリを起動するには環境変数の設定が必要である。env.tplファイルを環境変数設定ファイル.envとしてコピーし、以下の環境変数を定義する。
 
 ```bash
-copy env.tpl env.bat
+copy env.tpl .env
 ```
 
 |  変数名  |  説明  |
@@ -41,14 +45,14 @@ copy env.tpl env.bat
 - 起動方法
 
 ```bash
-env.bat
 python recognize_speech.py
 ```
 
-- 音声データファイル（MP3あるいはWAV形式）をアップロードする
-- Slack画面に音声の内容がテキストとして表示されることを確認する
+- Slack入力欄の「＋」アイコンで、音声データファイル（MP3あるいはWAV形式）をアップロードする。
+- Slack画面に音声の内容がテキストとして表示されることを確認する。
 
 ### 更新履歴
 
+- 2025-06-16 dotenvを利用
 - 2023-12-12 ffmpegの配置について記述
 - 2023-02-01 初版
